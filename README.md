@@ -52,3 +52,27 @@ sequenceDiagram
 
     deactivate System
     deactivate Salesperson
+
+# New Chart: On-site search activity diagram
+---
+config:
+  layout: fixed
+---
+flowchart TD
+    A["Start"] --> C{"Retrieve existing Customer Record?"}
+    C -- Yes --> D["Retrieve Customer Record"]
+    C -- No --> E["Create New Customer Record"]
+    D --> F["Record Customer Preferences"]
+    E --> F
+    F --> G["Search Internal and External Inventories"]
+    G --> M{"Matching Vehicles Found?"}
+    M -- Yes --> H["Display Matching Vehicles"]
+    M -- No --> N["Notify No Matching Vehicles"]
+    H --> K["End"]
+    N --> K
+    style A fill:#D0F0C0,stroke:#3C9D9B,stroke-width:2px
+    style C fill:#FFFFCC,stroke:#FFD700,stroke-width:2px
+    style G fill:#ADD8E6,stroke:#4682B4,stroke-width:2px
+    style M fill:#FFFFCC,stroke:#FFD700,stroke-width:2px
+    style N fill:#FFCCCC,stroke:#CC0000,stroke-width:2px
+    style K fill:#D0F0C0,stroke:#3C9D9B,stroke-width:2px
